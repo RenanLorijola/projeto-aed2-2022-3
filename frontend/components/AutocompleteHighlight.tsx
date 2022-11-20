@@ -10,6 +10,7 @@ import { useTheme, styled } from "@mui/material/styles";
 import { VariableSizeList, ListChildComponentProps } from "react-window";
 import Typography from "@mui/material/Typography";
 import SearchIcon from "@mui/icons-material/Search";
+import Link from "next/link";
 const LISTBOX_PADDING = 8;
 
 function renderRow(props: ListChildComponentProps) {
@@ -159,23 +160,29 @@ export default function AutocompleteHighlight() {
         }}
         renderOption={(props, option) => [props, option] as React.ReactNode}
       />
-      <Button
-        onClick={() => {}}
-        color="primary"
-        sx={{
-          color: "#fff",
-          mt: 4,
-          width: 350,
-          height: 50,
-          fontSize: 24,
-        }}
-        variant="contained"
-        endIcon={<SearchIcon fontSize="large" />}
+      <Link
+        href={`/${inputValue}`}
+        style={{ textDecoration: "none" }}
+        legacyBehavior
       >
-        <Typography fontWeight={700} fontSize={20}>
-          Buscar
-        </Typography>
-      </Button>
+        <Button
+          color="primary"
+          sx={{
+            color: "#fff",
+            mt: 4,
+            width: 350,
+            height: 50,
+            fontSize: 24,
+          }}
+          disabled={value === null}
+          variant="contained"
+          endIcon={<SearchIcon fontSize="large" />}
+        >
+          <Typography fontWeight={700} fontSize={20}>
+            Buscar
+          </Typography>
+        </Button>
+      </Link>
     </>
   );
 }
