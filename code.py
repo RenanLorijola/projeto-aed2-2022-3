@@ -7,6 +7,7 @@ df_movies = pd.read_csv(r'data\rotten_tomatoes_movies.csv')
 
 # Tratamento do nome dos filmes
 df_movies['movie_title'] = df_movies['movie_title'].transform(lambda x: ud.unidecode(x))
+df_movies['movie_title'] = df_movies['movie_title'].transform(lambda x: x.replace('&', 'and'))
 df_movies['movie_title'] = df_movies['movie_title'].transform(lambda x: x.replace('!', ''))
 df_movies['movie_title'] = df_movies['movie_title'].transform(lambda x: x.replace('?', ''))
 df_movies['movie_title'] = df_movies['movie_title'].transform(lambda x: x.replace('#', ''))
