@@ -26,6 +26,7 @@ df_movies['movie_title'] = df_movies['movie_title'].transform(lambda x: x.lstrip
 df_movies['movie_title'] = df_movies['movie_title'].transform(lambda x: x.rstrip())
 df_movies['movie_title'] = df_movies['movie_title'].transform(lambda x: x.lower())
 df_movies['movie_title'] = df_movies['movie_title'].transform(lambda x: x.title())
+# df_movies.to_csv(r'data\rotten_tomatoes_movies.csv', index=False)
 
 # Ordenando filmes 
 df_movies.sort_values('movie_title', inplace=True)
